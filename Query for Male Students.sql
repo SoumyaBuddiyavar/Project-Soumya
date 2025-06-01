@@ -1,0 +1,1 @@
+SELECT * FROM student_table WHERE Gender = 'Male';

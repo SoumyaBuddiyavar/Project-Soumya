@@ -1,0 +1,2 @@
+INSERT INTO Registrations VALUES
+(1005, 2, 104, '2025-07-05', 350);
