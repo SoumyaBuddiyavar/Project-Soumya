@@ -1,0 +1,29 @@
+SELECT c.COURSE_NAME, COUNT(e.STU_ID) AS Total_Students
+FROM CoursesInfo c
+JOIN EnrollmentInfo e ON c.COURSE_ID = e.COURSE_ID
+WHERE e.ENROLL_STATUS = 'Enrolled'
+GROUP BY c.COURSE_NAME;
+
+SELECT s.STU_NAME
+FROM StudentInfo s
+JOIN EnrollmentInfo e ON s.STU_ID = e.STU_ID
+WHERE e.COURSE_ID = 1 AND e.ENROLL_STATUS = 'Enrolled';
+
+SELECT c.COURSE_INSTRUCTOR, COUNT(e.STU_ID) AS Student_Count
+FROM CoursesInfo c
+JOIN EnrollmentInfo e ON c.COURSE_ID = e.COURSE_ID
+WHERE e.ENROLL_STATUS = 'Enrolled'
+GROUP BY c.COURSE_INSTRUCTOR;
+
+SELECT s.STU_NAME
+FROM StudentInfo s
+JOIN EnrollmentInfo e ON s.STU_ID = e.STU_ID
+GROUP BY s.STU_NAME
+HAVING COUNT(e.COURSE_ID) > 1;
+
+SELECT c.COURSE_NAME, COUNT(e.STU_ID) AS Student_Count
+FROM CoursesInfo c
+JOIN EnrollmentInfo e ON c.COURSE_ID = e.COURSE_ID
+WHERE e.ENROLL_STATUS = 'Enrolled'
+GROUP BY c.COURSE_NAME
+ORDER BY Student_Count DESC;
